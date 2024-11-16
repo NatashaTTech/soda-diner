@@ -1,0 +1,85 @@
+::-webkit-scrollbar {
+    background-color: transparent;
+}
+body {
+    overflow-x: hidden;
+    height: 100vh;
+}
+i {
+    font-size: 1.2rem;
+}
+/* landing page styling */
+.landing>img {
+    max-width: 21rem;
+}
+.home-btn{
+    transition: color 200ms linear;
+}
+.home-btn:hover {
+    cursor: pointer;
+    color: #FFAA1D;
+}
+/* diners, sodas page styling */
+.diners, .sodas, .add-soda-popup, .add-diner-popup, .edit-diner-popup{
+    display: none;
+}
+.soda-list, .diner-list {
+    height: 27rem;
+    overflow-y: auto;
+}
+.soda-list::-webkit-scrollbar {
+    background: #a5673f;
+    border-radius: 3px;
+}
+.diner-list::-webkit-scrollbar {
+    background: #ff7b2d;
+    border-radius: 3px;
+}
+.highlightName {
+    color: #f2711c!important;
+}
+.highlightInfo {
+    color: #eb9b18;
+}
+.accordion>.h2:hover {
+    color: #f2711c!important;
+}
+.accordion>.h2 {
+    cursor: pointer;
+    transition: all 200ms linear;
+}
+/* add diner, add soda popups */
+.add-soda-popup, .add-diner-popup, .edit-diner-popup {
+    position: absolute;
+    top: 20%;
+    box-shadow: 0 0 .5rem .1rem white;
+}
+.submit-btn {
+    margin-right: 2rem!important;
+}
+.added, .not-added, .deleted, .edited  {
+    display: none;
+    position: absolute;
+    color: #eb9b18;
+    box-shadow: 0 0 0.6rem 0.1rem white;
+}
+input[type="checkbox"] {
+    cursor: pointer;
+}
+.signature {
+    position: absolute;
+    bottom: 0;
+    left:0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: .8rem;
+}
+/* media queries */
+@media (min-width: 768px) {
+    .signature {
+        bottom: 0.5rem;
+        /* left: 0; */
+    }
+    .soda-list, .diner-list {
+        height: 32rem;
+    }
+}

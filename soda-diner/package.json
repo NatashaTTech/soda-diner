@@ -1,0 +1,24 @@
+{
+  "name": "Soda_Diner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "seed": "mongosh soda-diner --eval 'printjson(db.dropDatabase())' && mongoimport --db=soda-diner --collection=sodas --file=db_seed/soda-seeds.json --jsonArray && mongoimport --db=soda-diner --collection=diners --file=db_seed/diner-seeds.json --jsonArray"
+  },
+  "keywords": [],
+  "author": "Natasha Towle ",
+  "license": "ISC",
+  "description": "Fizzbin Soda Diner",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.3.1",
+    "nodemon": "^2.0.22",
+    "path": "^0.12.7"
+  }
+}

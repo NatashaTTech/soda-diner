@@ -1,0 +1,32 @@
+[
+    {
+        "name": " Pepsi",
+        "fizziness": 7,
+        "tasteRating": 7
+    },
+    {
+        "name": " Mr. Pibb",
+        "fizziness": 7,
+        "tasteRating": 9
+    },
+    {
+        "name": " Sprite",
+        "fizziness": 6,
+        "tasteRating": 7
+    },
+    {
+        "name": " Rockstar",
+        "fizziness": 8,
+        "tasteRating": 10
+    },
+    {
+        "name": " Mountain Dew",
+        "fizziness": 6,
+        "tasteRating": 6
+    },
+    {
+        "name": " Root Beer",
+        "fizziness": 7,
+        "tasteRating": 9
+    }
+]

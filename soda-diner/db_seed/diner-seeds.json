@@ -1,0 +1,57 @@
+[
+    {
+        "name": "Bob's Burgers",
+        "location": "New York, NY",
+        "sodas": [
+            " Sprite",
+            " Pepsi"
+        ]
+    },
+    {
+        "name": "Bill & Ted's Excellent Diner",
+        "location": "San Dimas, CA",
+        "sodas": [
+            " Mr. Pibb",
+            " Mountain Dew",
+            " Rockstar"
+        ]
+    },
+    {
+        "name": "Kwik-E-Mart",
+        "location": "Springfield, IL",
+        "sodas": [
+            " Mr. Pibb",
+            " Pepsi",
+            " Sprite",
+            " Rockstar"
+        ]
+    },
+    {
+        "name": "Quark's Bar",
+        "location": "The Promenade, Deep Space Nine",
+        "sodas": [
+            " Pepsi",
+            " Sprite",
+            " Mountain Dew",
+            " Root Beer"
+        ]
+    },
+    {
+        "name": "Mos Eisley Cantina",
+        "location": "Mos Eisley Spaceport, Tatooine",
+        "sodas": [
+            " Rockstar",
+            " Pepsi",
+            " Mountain Dew"
+        ]
+    },
+    {
+        "name": "Ten-Forward",
+        "location": "Federation Starship Enterprise NCC-1701",
+        "sodas": [
+            " Rockstar",
+            " Root Beer",
+            " Mr. Pibb"
+        ]
+    }
+]

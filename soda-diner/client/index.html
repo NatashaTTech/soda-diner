@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/soda_icon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Soda Diner</title>
+</head>
+
+<body class="ui inverted segment overflow-hidden">
+    <!-- top nav -->
+    <div class="col-12 bg-dark rounded w-100 d-flex flex-column flex-md-row justify-content-between align-items-center py-4 px-5">
+        <div class="home-btn h2 fw-light col-12 col-md-6 col-xl-3 offset-xl-1 text-center text-md-start text-xl-end pb-3 pb-md-0">🥤 Fizzbin Sodas</div>
+        <div class="col-12 col-md-6 mb-1 pl-5 text-center">
+            <div class="diners-btn ui button large orange">All Diners</div>
+            <div class="sodas-btn ui button large brown mx-md-4">All Sodas</div>
+        </div>
+    </div> <!-- end top nav -->
+    <!---- main section ---->
+    <!-- landing page -->
+    <div class="landing mx-auto row align-items-center flex-column pt-2 pt-md-3 pb-5 mt-4 my-md-5">
+        <div class="h1 fw-light text-center pb-4 pb-md-5">Welcome to Fizzbin Sodas!</div>
+        <img src="img/soda_boy.jpeg" alt="Cool kid with a soda" class="mx-auto rounded col-8 col-md-12">
+    </div> <!-- end landing page -->
+    <!-- diners page -->
+    <div class="diners mx-auto row align-items-center flex-column pb-3 pt-sm-3 pb-sm-5 mt-3 my-sm-5">
+        <div class="h1 fw-light text-center pb-sm-4">All Diners Available:</div>
+        <div class="diner-list text-light text-center mb-3 mb-sm-0">
+            <!-- database diner objects are dynamically inserted here -->
+        </div>
+        <div class="d-flex justify-content-center pt-sm-5 pb-4">
+            <div class="add-diner-btn ui button inverted orange">Add A New Diner</div>
+        </div>
+    </div> <!-- end diners page -->
+    <!-- add a new diner popup -->
+    <div class="add-diner-popup draggable border rounded bg-dark col-11 col-md-8 offset-md-2 col-xl-6 offset-xl-3 p-3">
+        <div class="h2 text-center fw-light pt-2">Add A New Diner</div>
+        <div class="ui inverted divider mb-3"></div>
+        <!-- add diner form -->
+        <form class="add-diner-form col-xl-8 offset-xl-2 pt-3 pb-2">
+            <input class="form-control w-75 mx-auto text-center mb-4" type="text" name="dinerName" id="dinerName" placeholder="What's the name of your diner?" required>
+            <input class="form-control w-75 mx-auto text-center mb-2" type="text" name="location" id="location" placeholder="Where's your diner located?" required>
+            <div class="row align-items-center pt-4 pb-2">
+                <div class="h4 fw-light col-6 col-md-7 text-end">Which sodas will it serve?<br>Hold cmd key to select multiple sodas:</div>
+                <div class="col-6 col-md-4">
+                    <select class="rounded col-10 col-md-12 text-center" name="soda-options" id="soda-options" size="4" multiple required>
+                        <!-- available sodas are dynamically inserted here as options -->
+                    </select>
+                </div>
+            </div>
+            <div class="ui inverted divider w-75 mx-auto pt-2"></div>
+            <div class="d-flex justify-content-center mx-auto pt-2">
+                <button class="ui button inverted red" type="submit">Submit</button>
+                <button class="cancel-btn ui button inverted basic">Cancel</button>
+            </div>
+        </form> <!-- end add diner form -->
+    </div> <!-- end add new diner popup -->
+    <!-- edit diner menu popup -->
+    <div class="edit-diner-popup draggable border rounded bg-dark col-11 col-md-8 offset-md-2 col-xl-6 offset-xl-3 p-3">
+        <div class="h2 text-center fw-light pt-2">Edit Diner Information</div>
+        <div class="ui inverted divider mb-3"></div>
+        <!-- edit diner form -->
+        <form class="edit-diner-form pt-3 pb-2">
+            <div class="row justify-content-center align-items-center col-12 col-md-9 pb-3">
+                <div class="col-6 text-end pr-5 h4 fw-light">Diner Name: </div>
+                <input class="form-control w-50" type="text" name="editName" id="editName">
+            </div>
+            <div class="row justify-content-center align-items-center col-12 col-md-9 pb-4">
+                    <div class="col-6 text-end pr-5 h4 fw-light">Location: </div>
+                    <input class="form-control w-50" type="text" name="editLocation" id="editLocation">
+                </div>
+            <div class="text-center h4 fw-light pt-2">Choose which sodas to serve at this diner:</div>
+            <div id="choose-soda-list" class="d-flex col-12 col-md-10 offset-md-1 justify-content-center pt-3 flex-wrap">
+                <!-- available sodas are dynamically inserted here -->
+            </div>
+            <div class="ui inverted divider w-75 mx-auto"></div>
+            <div class="d-flex justify-content-center mx-auto pt-2">
+                <button class="ui button inverted red" type="submit">Save</button>
+                <button class="cancel-btn ui button inverted basic">Cancel</button>
+            </div>
+        </form> <!-- end edit diner form -->
+    </div> <!-- end edit diner menu popup -->
+    <!-- sodas page -->
+    <div class="sodas mx-auto row align-items-center flex-column pb-3 pt-sm-3 pb-sm-5 mt-3 my-sm-5">
+        <div class="h1 fw-light text-center pb-sm-4">All Sodas Available:</div>
+        <div class="soda-list text-light text-center mb-3 mb-sm-0">
+            <!-- database soda objects are dynamically inserted here -->
+        </div>
+        <div class="d-flex justify-content-center pt-sm-5 pb-4">
+            <div class="add-soda-btn ui button inverted red">Add A New Soda</div>
+        </div>
+    </div> <!-- end sodas page -->
+    <!-- add a new soda popup -->
+    <div class="add-soda-popup draggable border rounded bg-dark col-11 col-md-8 offset-md-2 col-xl-6 offset-xl-3 p-3">
+        <div class="h2 text-center fw-light pt-2">Add A New Soda</div>
+        <div class="ui inverted divider mb-3"></div>
+        <!-- add soda form -->
+        <form class="add-soda-form col-xl-8 offset-xl-2 pt-3 pb-2">
+            <input class="form-control w-75 mx-auto text-center" type="text" name="sodaName" id="sodaName" placeholder="What's the name of your soda?" required>
+            <div class="row align-items-center pt-4 pb-3">
+                <div class="h4 fw-light col-8 col-md-7 text-end">How fizzy is it?</div>
+                <div class="col-3 col-md-4">
+                    <select class="rounded col-md-3" name="fizziness" id="fizziness" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="h4 fw-light col-9 col-md-8 text-end">How good does it taste?</div>
+                <div class="col-3 col-md-4">
+                    <select class="rounded col-md-3" name="tasteRating" id="tasteRating" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+            </div>
+            <div class="ui inverted divider w-75 mx-auto pt-2"></div>
+            <div class="d-flex justify-content-center mx-auto pt-2">
+                <button class="ui button inverted red" type="submit">Submit</button>
+                <button class="cancel-btn ui button inverted basic">Cancel</button>
+            </div>
+        </form> <!-- end soda form -->
+    </div> <!-- end add new soda popup -->
+    <!-- added to database popup -->
+    <div class="added ui h3 rounded px-4 py-3 border fw-light bg-dark text-center">Added to Database</div>
+    <!-- not added to database popup -->
+    <div class="not-added ui h3 fw-light rounded px-4 py-3 border bg-dark text-center">Cannot add to database: Name already exists</div>
+    <!-- deleted from database popup -->
+    <div class="deleted ui h3 fw-light rounded px-4 py-3 border bg-dark text-center">Deleted from database</div>
+    <!-- diner edited popup -->
+    <div class="edited ui h3 fw-light rounded px-4 py-3 border bg-dark text-center">Diner update successful</div>
+    <!-- signature -->
+    <div class="signature bg-dark rounded w-100 text-center col-12 pb-3 pt-1">© boolean_dragon 2023</div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" integrity="sha512-aNMyYYxdIxIaot0Y1/PLuEu3eipGCmsEUBrUq+7aVyPGMFH8z0eTP0tkqAvv34fzN6z+201d3T8HPb1svWSKHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+
+<script src="js/bubbles.js"></script>
+    <script src="js/soda_diner_api.js"></script>
+</body>
+
+</html>
